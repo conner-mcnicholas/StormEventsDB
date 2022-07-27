@@ -16,27 +16,23 @@ _____
 
 To keep the database in sync with the latest data available, we must ingest new data as soon as it is available.  
 
-There are three mechanisms under which data is released from source, and ingested into the database, referred to as  
+There are three mechanisms by which new data is released and ingested through pipelines:  
 **Initial Load**, **Monthly Update** and **Yearly New**  
-  sometimes shortened as, respectively: **initial**,**update**, and **new**  
-    or even shorter still as,: **init**,**upd**, and **new**.
-
+  - sometimes shortened as, respectively: **initial**,**update**, and **new**  
+    - or even shorter still as,: **init**,**upd**, and **new**.
 
 1. **Initial Load**: is a simple ingestion of all available details and fatalities csv.gz files.  
-2. **Monthly Update**: On the 16th of each month, the current year's file is updated with the latest data
-  - this is communicated by the source  filename changing to reflect the recently modified date.
-    - upon confirmation of that filename change, trigger **upd** ELT pipeline  
+  - "one and done", i.e. nothing to cleanup or monitor.
+2. **Monthly Update**: On the 16th of each month, the current year's file is updated and renamed with mod date
+  - upon confirmation of that filename change, trigger **upd** ELT pipeline  
 3. **Yearly New**: On April 16th of each year, a fresh file for that year is dropped for the first time.  
-  - This is communicated by generating a brand new file for the years
-    - Upon confirmation of that new file drop, trigger **new** ELT pipeline_test_success
-      - Begin tracking this file for monthly renaming, as it replaces last year's **upd** file
+  - Upon confirmation of that new file drop, trigger **new** ELT pipeline_test_success
+    - Begin tracking this file for monthly renaming, as it replaces last year's **upd** file
 
   The data extract logic required  for each exists in its respective python scripts  
-  (see:`scripts/\*_files_to_blob\*.py`), which are triggered by distinct tumbling window triggers in  
-  Azure Data Factory.  
+  (see:`scripts/\*_files_to_blob\*.py`) and data factory tumbling window triggers
 
-  As the **upd** and **new** file pipelines are nearly identical, only differing with respect to update frequency and  
-  repetition, taking a deep dive into the **new** pipeline will clarify the data flow for all cases.
+  The **new** pipeline is the most involved, and taking a deep dive into that pipeline is instructive for all other cases:
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/annotated_pull_new_w_id.png?raw=true)  
 
