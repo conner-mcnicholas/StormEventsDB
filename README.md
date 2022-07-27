@@ -3,41 +3,32 @@ _____
 
 ## Background
 
-  This cloud database of US storm events since 1950 is my official submission for the  
-  "Open Ended Capstone Project", part of the *Data Engineering* curriculum at  
-  __Springboard's School of Data__.
+  This cloud database of US storm events since 1950 is my official submission for the "Open Ended Capstone Project", part of the *Data Engineering* curriculum at __Springboard's School of Data__.
 
 ## Objective
 
-  The objective of the Capstone is to identify a large raw dataset from which one could derive value,  
-  then develop and deploy a solution enabling the extraction, ingestion, and transformation of that  
-  data towards some practical application.
+  The objective of the Capstone is to identify a large raw dataset from which one could derive value, then develop and deploy a solution enabling the extraction, ingestion, and transformation of that data towards some practical application.
 
 ----
 
-## Data Model
+## Data Model  
 
-  There are three different schemas offering storm event data within csv.gz files:
+There are three different schemas offering storm event data within csv.gz files:
 
 #### Details
   - *columns:* 51
   - *rows:* ~1.8m (25k / year)
-  - *description:* contains nearly all of the most essential data, including even location and
-  fatality data, despite standalone files already being dedicated to those categories.
+  - *description:* contains nearly all of the most essential data, including even location and fatality data, despite standalone files already being dedicated to those categories.
 
 #### Locations  
   - *columns:* 11
   - *rows:* ~500k (7k / year)  
-  - *description:* because the details file already includes all of the data that the locations
-  file contains, the locations file is descoped as it is not worth the storage and CPU cost.
+  - *description:* because the details file already includes all of the data that the location file contains, the locations file is descoped as it is not worth the storage and CPU cost.
 
 #### Fatalities
   - *columns:* 11
   - *rows:* ~20 K (250 / year)  
-  - *description:* although the details file even includes information about fatalities, the fatalities
-  file provides further identifying information by documenting a single human fatality per row (identified  
-    by the compound primary key columns of EVENT_ID and FATALITY_ID) allowing indication of the  
-    deceased individual's age, sex, date of passing, etc.
+  - *description:* although the details file even includes information about fatalities, the fatalities file provides further identifying information by documenting a single human fatality per row (identified by the compound primary key columns of EVENT_ID and FATALITY_ID) allowing indication of the deceased individual's age, sex, date of passing, etc.
 
 ### Entity Relationship Diagram:
 
@@ -56,9 +47,9 @@ _____
 To keep the database in sync with the latest data available, we must ingest new data as soon as it is available.  
 
 There are three mechanisms by which new data is released and ingested through pipelines:  
-> **Initial Load** (`......` or shortened as: **initial** `.....` or shortest as: **init**)  
-> **Monthly Update** (`..` or shortened as: **update** `...` or shortest as: **upd**)  
-> **Yearly New** (`......` or shortened as: **new** `......` or shortest as: **new**)
+> **Initial Load** (shorter: **initial** ; shortest: **init**)  
+> **Monthly Update** (shorter: **update** ; shortest: **upd**)  
+> **Yearly New** (shorter: **new** ; shortest: **new**)
 
 1. **Initial Load**: is a simple ingestion of all available details and fatalities csv.gz files.  
     - "one and done", i.e. nothing to cleanup or monitor.
