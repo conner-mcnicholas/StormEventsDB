@@ -17,16 +17,16 @@ _____
 To keep the database in sync with the latest data available, we must ingest new data as soon as it is available.  
 
 There are three mechanisms by which new data is released and ingested through pipelines:  
-> **Initial Load** (.... or shortened as: **initial** .. or shortest as: **init**)  
-> **Monthly Update** (.. or shortened as: **update** ... or shortest as: **upd**)  
-> **Yearly New** (...... or shortened as: **new** ...... or shortest as: **new**)
+> **Initial Load** (`....` or shortened as: **initial** `..` or shortest as: **init**)  
+> **Monthly Update** (`..` or shortened as: **update** `...` or shortest as: **upd**)  
+> **Yearly New** (`......` or shortened as: **new** `......` or shortest as: **new**)
 
 1. **Initial Load**: is a simple ingestion of all available details and fatalities csv.gz files.  
-  - "one and done", i.e. nothing to cleanup or monitor.
+    - "one and done", i.e. nothing to cleanup or monitor.
 2. **Monthly Update**: On the 16th of each month, the current year's file is updated and renamed with mod date
-  - upon confirmation of that filename change, trigger **upd** ELT pipeline  
+    - upon confirmation of that filename change, trigger **upd** ELT pipeline  
 3. **Yearly New**: On April 16th of each year, a fresh file for that year is dropped for the first time.  
-  - Upon confirmation of that new file drop, trigger **new** ELT pipeline_test_success
+    - Upon confirmation of that new file drop, trigger **new** ELT pipeline_test_success
     - Begin tracking this file for monthly renaming, as it replaces last year's **upd** file
 
   The data extract logic required  for each exists in its respective python scripts  
