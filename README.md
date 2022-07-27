@@ -20,24 +20,24 @@ _____
   There are three different schemas offering storm event data within csv.gz files:
 
 #### Details
-  - columns: 51
-  - rows: ~1.8m (25k / year)
-  - description: contains nearly all of the most essential data, including even location and
+  - *columns:* 51
+  - *rows:* ~1.8m (25k / year)
+  - *description:* contains nearly all of the most essential data, including even location and
   fatality data, despite standalone files already being dedicated to those categories.
 
 #### Locations  
-  - columns: 11
-  - rows: ~500k (7k / year)  
-  - description: because the details file already includes all of the data that the locations
+  - *columns:* 11
+  - *rows:* ~500k (7k / year)  
+  - *description:* because the details file already includes all of the data that the locations
   file contains, the locations file is descoped as it is not worth the storage and CPU cost.
 
 #### Fatalities
-- columns: 11
-- rows: ~20 K (250 / year)  
-- description: although the details file even includes information about fatalities, the fatalities
-file provides further identifying information by documenting a single human fatality per row (identified  
-  by the compound primary key columns of EVENT_ID and FATALITY_ID) allowing indication of the  
-  deceased individual's age, sex, date of passing, etc.
+  - *columns:* 11
+  - *rows:* ~20 K (250 / year)  
+  - *description:* although the details file even includes information about fatalities, the fatalities
+  file provides further identifying information by documenting a single human fatality per row (identified  
+    by the compound primary key columns of EVENT_ID and FATALITY_ID) allowing indication of the  
+    deceased individual's age, sex, date of passing, etc.
 
 ### Entity Relationship Diagram:
 
@@ -130,6 +130,6 @@ Deploys Azure resources via Docker container image:
 
 ## Query
 
-- Available to explore -> 1.8M rows capturing 70 years of weather data across 62 columns:  
+- Available to explore -> 1.8M rows capturing 70 years of weather data across 62 *columns:*  
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/mysqlworkbench_detdate.png?raw=true)
