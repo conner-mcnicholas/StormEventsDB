@@ -23,7 +23,7 @@ _____
 To keep the database in sync with the latest data available, we must ingest new data as soon as it is available.  
 
 There are three mechanisms by which new data is released and ingested through pipelines:  
-> **Initial Load** (`......` or shortened as: **initial** `....` or shortest as: **init**)  
+> **Initial Load** (`......` or shortened as: **initial** `.....` or shortest as: **init**)  
 > **Monthly Update** (`..` or shortened as: **update** `...` or shortest as: **upd**)  
 > **Yearly New** (`......` or shortened as: **new** `......` or shortest as: **new**)
 
