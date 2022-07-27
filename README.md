@@ -21,21 +21,21 @@ _____
 
 #### Details
   - columns: 51
-  - rows: ~1.8m (25k / year)  
-  The details file contains nearly all of the most essential data, including even location and
+  - rows: ~1.8m (25k / year)
+  - description: contains nearly all of the most essential data, including even location and
   fatality data, despite standalone files already being dedicated to those categories.
 
 #### Locations  
   - columns: 11
   - rows: ~500k (7k / year)  
-  Because the details data includes all of the data that the locations file contains, the locations
-  file is redundant and not worth the storage and CPU cost.  It is descoped from the project.
+  - description: because the details file already includes all of the data that the locations
+  file contains, the locations file is descoped as it is not worth the storage and CPU cost.
 
-#### Fatalities (11 columns)
+#### Fatalities
 - columns: 11
 - rows: ~20 K (250 / year)  
-Although the details file even includes information about fatalities, the fatalities file's 11 columns  
-provide further identifying information by documenting a single human fatality per row (identified  
+- description: although the details file even includes information about fatalities, the fatalities
+file provides further identifying information by documenting a single human fatality per row (identified  
   by the compound primary key columns of EVENT_ID and FATALITY_ID) allowing indication of the  
   deceased individual's age, sex, date of passing, etc.
 
