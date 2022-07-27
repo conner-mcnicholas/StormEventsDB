@@ -16,10 +16,11 @@ _____
 
 To keep the database in sync with the latest data available, we must ingest new data as soon as it is available.  
 
-There are three mechanisms under which data is released, referred to as  
+There are three mechanisms under which data is released from source, and ingested into the database, referred to as  
 **Initial Load**, **Monthly Update** and **Yearly New**  
   sometimes shortened as, respectively: **initial**,**update**, and **new**  
     or even shorter still as,: **init**,**upd**, and **new**.
+
 
 1. **Initial Load**: is a simple ingestion of all available details and fatalities csv.gz files.  
 2. **Monthly Update**: On the 16th of each month, the current year's file is updated with the latest data
@@ -30,9 +31,10 @@ There are three mechanisms under which data is released, referred to as
     - Upon confirmation of that new file drop, trigger **new** ELT pipeline_test_success
       - Begin tracking this file for monthly renaming, as it replaces last year's **upd** file
 
-  A dedicated ELT pipeline has been tailored to each of these three distinct release cadences.  
   The data extract logic required  for each exists in its respective python scripts  
-  (see:`scripts/\*_files_to_blob\*.py`), which are triggered by distinct tumbling window triggers in Azure Data Factory.  
+  (see:`scripts/\*_files_to_blob\*.py`), which are triggered by distinct tumbling window triggers in  
+  Azure Data Factory.  
+
   As the **upd** and **new** file pipelines are nearly identical, only differing with respect to update frequency and  
   repetition, taking a deep dive into the **new** pipeline will clarify the data flow for all cases.
 
