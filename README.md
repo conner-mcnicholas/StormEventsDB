@@ -45,7 +45,7 @@ There are three mechanisms by which new data is released and ingested through pi
 
 ### Testing
 
-- **8** *Total Tests* [**2 General Tests** + **6 Pipeline Tests**] ALL PASS SUCCESSFULLY
+- **8** *Total Tests* [**2 General Tests** + **6 Pipeline Tests**] 
   - **2** *General Tests* [**1** *General Test* x **2** *Tables*] verify each year has a file in datalake  
   - **6** *Pipeline Tests* [**3** *Pipeline Tests*  x **2** *Tables*] verify all rows in source file have row in table
 
