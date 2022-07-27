@@ -6,11 +6,17 @@ _____
 
 ### Background
 
+----
+
 ### Data Model
+
+---
 
 ### Architecture
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/architecture_diagram.png?raw=true)  
+
+---
 
 ### ELT Pipelines Overview:
 
@@ -33,6 +39,8 @@ There are three mechanisms by which new data is released and ingested through pi
   (see:`scripts/\*_files_to_blob\*.py`) and data factory tumbling window triggers
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/pipeline_overview.png?raw=true)  
+
+---
 
 ### Yearly New Pipeline Deep Dive:
 
