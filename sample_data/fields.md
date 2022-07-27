@@ -3,8 +3,8 @@
 (ID assigned by NWS to note a single, small part that goes into a specific storm episode; links
 the storm episode between the three files downloaded from SPC’s website)
 
-**cz_name** str *Ex*: AIKEN Co., RICHMOND Co, DEKALB (ZONE) (County/Parish, Zone or
-Marine Name assigned to the county FIPS number or NWS Forecast Zone)
+**cz_name** str *Ex*: AIKEN Co., RICHMOND Co, DEKALB (Z ;ONE) (County/Parish, Z ;one or
+Marine Name assigned to the county FIPS number or NWS Forecast Z ;one)
 
 **begin_location** *Ex*: DAVENPORT, PLATO CENTER, BENNETTSVILLE
 The name of the begin location of the event
@@ -21,8 +21,59 @@ chosen event name should be the one that most accurately describes the meteorolo
 leading to fatalities, injuries, damage, etc. However, significant events, such as tornadoes,
 having no impact or causing no damage, should also be included in Storm Data.
 
+***Table 1***:
+Event Name               =  Designator (County or Zone) ;
+Astronomical Low Tide    =  Z ;
+Avalanche                =  Z ;
+Blizzard                 =  Z ;
+Coastal Flood            =  Z ;
+Cold/Wind Chill          =  Z ;
+Debris Flow              =  C ;
+Dense Fog                =  Z ;
+Dense Smoke              =  Z ;
+Drought                  =  Z ;
+Dust Devil               =  C ;
+Dust Storm               =  Z ;
+Excessive Heat           =  Z ;
+Extreme Cold/Wind Chill  =  Z ;
+Flash Flood              =  C ;
+Flood                    =  C ;
+Freezing Fog             =  Z ;
+Frost/Freeze             =  Z ;
+Funnel Cloud             =  C ;
+Hail                     =  C ;
+Heat                     =  Z ;
+Heavy Rain               =  C ;
+Heavy Snow               =  Z ;
+High Surf                =  Z ;
+High Wind                =  Z ;
+Hurricane (Typhoon)      =  Z ;
+Lake-Effect Snow         =  Z ;
+Lakeshore Flood          =  Z ;
+Lightning                =  C ;
+Marine Hail              =  M ;
+Marine High Wind         =  M ;
+Marine Strong Wind       =  M ;
+Marine Thunderstorm Wind =  M ;
+Rip Current              =  Z ;
+Seiche                   =  Z ;
+Sleet                    =  Z ;
+Storm Surge/Tide         =  Z ;
+Strong Wind              =  Z ;
+Thunderstorm Wind        =  C ;
+Tornado                  =  C ;
+Tropical Depression      =  Z ;
+Tropical Storm           =  Z ;
+Tsunami                  =  Z ;
+Volcanic Ash             =  Z ;
+Waterspout               =  M ;
+Wildfire                 =  Z ;
+Winter Storm             =  Z ;
+Winter Weather           =  Z ;
+
+
 **magnitude** *Ex*: 0.75, 60, 0.88, 2.75
-The magnitude of the event. This is only used for wind speeds and hail size (e.g. 0.75” of hail;
+The magnitude of the event. This is only used for wind speeds and hail siZ ;e (e.g. 0.75” of hail;
 60 knot winds)
 
 **tor_f_scale** *Ex*: EF0, EF1, EF2, EF3, EF4, EF5
@@ -54,7 +105,7 @@ $10,000; 10.00M = $10,000,000)
 The state postal abbreviation of the event
 
 **cz_timezone** *Ex*: EST-5, MST-7, CST-6
-(Time Zone for the County/Parish, Zone or Marine Name)
+(Time Z ;one for the County/Parish, Z ;one or Marine Name)
 Eastern Standard Time (EST), Central Standard Time (CST), Mountain Standard Time (MST),
 etc.
 
@@ -66,14 +117,14 @@ MG = Measured Wind Gust (no magnitude is included for instances of hail)
 ID assigned by NWS to denote the storm episode; links the storm episode with the information
 within the event details file. An Episode may contain several different events.
 
-**cz_type** *Ex*: C, Z , M
-Indicates whether the event happened in a (C) county/parish, (Z) zone or (M) marine
+**cz_type** *Ex*: C, Z ; , M
+Indicates whether the event happened in a (C) county/parish, (Z ;) Z ;one or (M) marine
 
 **cz_fips** *Ex*: 245, 003, 155
 The county FIPS number is a unique number assigned to the county by the National Institute
-for Standards and Technology (NIST) or NWS Forecast Zone Number (See addendum)
+for Standards and Technology (NIST) or NWS Forecast Z ;one Number (See addendum)
 
-**wfo** *Ex*: CAE, BYZ, GJT (National Weather Service Forecast Office’s area of responsibility
+**wfo** *Ex*: CAE, BYZ ;, GJT (National Weather Service Forecast Office’s area of responsibility
 (County Warning Area) in which the event occurred)
 
 **injuries_indirect** *Ex*: 0, 15, 87
@@ -104,7 +155,7 @@ The distance to the nearest tenth of a mile, to the location referenced below.
 
 **end_range** see begin_range
 
-**end_azimuth** see begin_azimuth
+**end_azimuth** see begin_aZ ;imuth
 
 **end_location** see begin_location
 
@@ -133,57 +184,3 @@ maximum sustained winds near 170 mphThe event narrative provides descriptive det
 individual event. The National Weather Service creates the narrative.
 
 **absolute_row_number** the sequential number of events exported in this data file.
-
-------
-
-Table 1:
-
-Event Name               |  Designator (County or Zone)
-----------------------------------------------------
-Astronomical Low Tide    |  Z
-Avalanche                |  Z
-Blizzard                 |  Z
-Coastal Flood            |  Z
-Cold/Wind Chill          |  Z
-Debris Flow              |  C
-Dense Fog                |  Z
-Dense Smoke              |  Z
-Drought                  |  Z
-Dust Devil               |  C
-Dust Storm               |  Z
-Excessive Heat           |  Z
-Extreme Cold/Wind Chill  |  Z
-Flash Flood              |  C
-Flood                    |  C
-Freezing Fog             |  Z
-Frost/Freeze             |  Z
-Funnel Cloud             |  C
-Hail                     |  C
-Heat                     |  Z
-Heavy Rain               |  C
-Heavy Snow               |  Z
-High Surf                |  Z
-High Wind                |  Z
-Hurricane (Typhoon)      |  Z
-Lake-Effect Snow         |  Z
-Lakeshore Flood          |  Z
-Lightning                |  C
-Marine Hail              |  M
-Marine High Wind         |  M
-Marine Strong Wind       |  M
-Marine Thunderstorm Wind |  M
-Rip Current              |  Z
-Seiche                   |  Z
-Sleet                    |  Z
-Storm Surge/Tide         |  Z
-Strong Wind              |  Z
-Thunderstorm Wind        |  C
-Tornado                  |  C
-Tropical Depression      |  Z
-Tropical Storm           |  Z
-Tsunami                  |  Z
-Volcanic Ash             |  Z
-Waterspout               |  M
-Wildfire                 |  Z
-Winter Storm             |  Z
-Winter Weather           |  Z
