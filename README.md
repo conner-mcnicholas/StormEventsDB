@@ -17,7 +17,7 @@ _____
 To keep the database in sync with the latest data available, we must ingest new data as soon as it is available.  
 
 There are three mechanisms by which new data is released and ingested through pipelines:  
-> **Initial Load** (`......` or shortened as: **initial** `...` or shortest as: **init**)  
+> **Initial Load** (`......` or shortened as: **initial** `....` or shortest as: **init**)  
 > **Monthly Update** (`..` or shortened as: **update** `...` or shortest as: **upd**)  
 > **Yearly New** (`......` or shortened as: **new** `......` or shortest as: **new**)
 
@@ -32,6 +32,10 @@ There are three mechanisms by which new data is released and ingested through pi
   The data extract logic required  for each exists in its respective python scripts  
   (see:`scripts/\*_files_to_blob\*.py`) and data factory tumbling window triggers
 
+![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/pipeline_overview.png?raw=true)  
+
+### Yearly New Pipeline Deep Dive:
+
   The **new** pipeline is the most involved, and taking a deep dive into that pipeline is instructive for all other cases:
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/annotated_pull_new_w_id.png?raw=true)  
@@ -43,6 +47,8 @@ There are three mechanisms by which new data is released and ingested through pi
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/clean_containers_output.png?raw=true)  
 
+----
+
 ### Testing  
 
   *General Tests* verify each year has a file in Data Lake for both table  
@@ -53,6 +59,10 @@ There are three mechanisms by which new data is released and ingested through pi
   - **6** *Pipeline Tests* = **3** *Pipeline Tests*  x **2** *Tables*
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/pipeline_test_success.png?raw=true)
+
+----
+
+### Query
 
 - Available to explore -> 1.8M rows capturing 70 years of weather data across 62 columns:  
 
