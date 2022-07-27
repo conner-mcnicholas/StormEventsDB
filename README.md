@@ -17,9 +17,9 @@ _____
 To keep the database in sync with the latest data available, we must ingest new data as soon as it is available.  
 
 There are three mechanisms by which new data is released and ingested through pipelines:  
-**Initial Load** (.... or shortened as: **initial** .. or shortest as: **init**)  
-**Monthly Update** (.. or shortened as: **update** ... or shortest as: **upd**)  
-**Yearly New** (...... or shortened as: **new** ...... or shortest as: **new**)
+> **Initial Load** (.... or shortened as: **initial** .. or shortest as: **init**)  
+> **Monthly Update** (.. or shortened as: **update** ... or shortest as: **upd**)  
+> **Yearly New** (...... or shortened as: **new** ...... or shortest as: **new**)
 
 1. **Initial Load**: is a simple ingestion of all available details and fatalities csv.gz files.  
   - "one and done", i.e. nothing to cleanup or monitor.
