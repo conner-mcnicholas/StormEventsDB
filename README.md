@@ -43,11 +43,14 @@ There are three mechanisms by which new data is released and ingested through pi
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/clean_containers_output.png?raw=true)  
 
-### Testing
+### Testing  
 
-- **8** *Total Tests* [**2** *General Tests* + **6** *Pipeline Tests*] 
-  - **2** *General Tests* [**1** *General Test* x **2** *Tables*] verify each year has a file in datalake  
-  - **6** *Pipeline Tests* [**3** *Pipeline Tests*  x **2** *Tables*] verify all rows in source file have row in table
+  *General Tests* verify each year has a file in Data Lake for both table  
+  *Pipeline Tests* verify each line from source files have rows in both MySQL tables
+
+- **8** *Total Tests* = **2** *General Tests* + **6** *Pipeline Tests*
+  - **2** *General Tests* = **1** *General Test* x **2** *Tables*
+  - **6** *Pipeline Tests* = **3** *Pipeline Tests*  x **2** *Tables*
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/pipeline_test_success.png?raw=true)
 
