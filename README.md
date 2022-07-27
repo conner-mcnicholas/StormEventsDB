@@ -1,24 +1,57 @@
 # Storm Events Database
-
-## Cloud database of storm events in the U.S. from 1950 - Present
-
 _____
 
-### Background
+## Background
+
+  This cloud database of US storm events since 1950 is my official submission for the  
+  "Open Ended Capstone Project", part of the *Data Engineering* curriculum at  
+  __Springboard's School of Data__.
+
+## Objective
+
+  The objective of the Capstone is to identify a large raw dataset from which one could derive value,  
+  then develop and deploy a solution enabling the extraction, ingestion, and transformation of that  
+  data towards some practical application.
 
 ----
 
-### Data Model
+## Data Model
 
----
+  There are three different schemas offering storm event data within csv.gz files:
 
-### Architecture
+#### Details
+  - columns: 51
+  - rows: ~1.8m (25k / year)
+  The details file contains nearly all of the most essential data, including even location and
+  fatality data, despite standalone files already being dedicated to those categories.
+
+#### Locations  
+  - columns: 11
+  - rows: ~500k (7k / year)
+  Because the details data includes all of the data that the locations file contains, the locations
+  file is redundant and not worth the storage and CPU cost.  It is descoped from the project.
+
+#### Fatalities (11 columns)
+- columns: 11
+- rows: ~20 K (250 / year)
+Although the details file even includes information about fatalities, the fatalities file's 11 columns  
+provide further identifying information by documenting a single human fatality per row (identified  
+  by the compound primary key columns of EVENT_ID and FATALITY_ID) allowing indication of the  
+  deceased individual's age, sex, date of passing, etc.
+
+### Entity Relationship Diagram:
+
+![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/ERD.png?raw=true)  
+
+-------
+
+## Architecture
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/architecture_diagram.png?raw=true)  
 
 ---
 
-### ELT Pipelines Overview:
+## ELT Pipelines Overview:
 
 To keep the database in sync with the latest data available, we must ingest new data as soon as it is available.  
 
@@ -42,7 +75,7 @@ There are three mechanisms by which new data is released and ingested through pi
 
 ---
 
-### Yearly New Pipeline Deep Dive:
+## Yearly New Pipeline Deep Dive:
 
   The **new** pipeline is the most involved, and taking a deep dive into that pipeline is instructive for all other cases:
 
@@ -57,7 +90,7 @@ There are three mechanisms by which new data is released and ingested through pi
 
 ----
 
-### Testing  
+## Testing  
 
   *General Tests* verify each year has a file in Data Lake for both table  
   *Pipeline Tests* verify each line from source files have rows in both MySQL tables
@@ -70,7 +103,32 @@ There are three mechanisms by which new data is released and ingested through pi
 
 ----
 
-### Query
+## Deploying Resources
+
+Deploys Azure resources via Docker container image:
+
+- data lake blob storage   
+- mysql database   
+- databricks   
+- data factory   
+  - creates pipelines based on json configs in DATAFACTORY_pipelines  
+  - runs init pipeline to ingest all available data at source  
+
+  Requirement: Docker  
+
+  1) to start azure cli container, run from local terminal:  
+  > `./start.sh`  
+
+  2) now from inside azure cli container shell, run:  
+  > `bash-5.1#./create_resources.sh`  
+
+  3) login to az by entering given code at https://microsoft.com/devicelogin  
+
+  json metadata describing created resources will print to stdout (execution_log.txt)
+
+----
+
+## Query
 
 - Available to explore -> 1.8M rows capturing 70 years of weather data across 62 columns:  
 
