@@ -17,7 +17,7 @@ _____
 To keep the database in sync with the latest data available, we must ingest new data as soon as it is available.  
 
 There are three mechanisms by which new data is released and ingested through pipelines:  
-> **Initial Load** (`....` or shortened as: **initial** `..` or shortest as: **init**)  
+> **Initial Load** (`......` or shortened as: **initial** `...` or shortest as: **init**)  
 > **Monthly Update** (`..` or shortened as: **update** `...` or shortest as: **upd**)  
 > **Yearly New** (`......` or shortened as: **new** `......` or shortest as: **new**)
 
@@ -38,15 +38,16 @@ There are three mechanisms by which new data is released and ingested through pi
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/yearly_deepdive.png?raw=true)  
 
-  **upd** and **new** pipelines conclude with Data Lake container maintenance as the final step (see: `scripts/datalake_housekeeping_*.py`):
+  **upd** and **new** pipelines conclude with Data Lake container maintenance as the final step  
+  (see: `scripts/datalake_housekeeping_*.py`):
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/clean_containers_output.png?raw=true)  
 
 ### Testing
 
-- **8** *Total Tests* --> (**2 General Tests** + **6 Pipeline Tests**) ALL PASS SUCCESSFULLY (see: `testing/testing_plan_all_pipelines.txt`)
-  - **2** *General Tests*  --> [**1** *General Test* x **2** *Tables*] verify that each year since 1950 is accounted for with a csvgz file in Data Lake  
-  - **6** *Pipeline Tests* --> [**3** *Pipeline Tests*  x **2** *Tables*] verify that all rows in source csvgz file is accounted for with a row in MySQL table
+- **8** *Total Tests* [**2 General Tests** + **6 Pipeline Tests**] ALL PASS SUCCESSFULLY
+  - **2** *General Tests* [**1** *General Test* x **2** *Tables*] verify each year has a file in datalake  
+  - **6** *Pipeline Tests* [**3** *Pipeline Tests*  x **2** *Tables*] verify all rows in source file have row in table
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/pipeline_test_success.png?raw=true)
 
