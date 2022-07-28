@@ -60,7 +60,7 @@ There are three mechanisms by which new data is released and ingested through pi
     - Begin tracking this file for monthly renaming, as it replaces last year's **upd** file
 
   The data extract logic required  for each exists in its respective python scripts  
-  (see:`scripts/\*_files_to_blob\*.py`) and data factory tumbling window triggers
+  (see:`scripts/*_files_to_blob*.py`) and data factory tumbling window triggers
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/pipeline_overview.png?raw=true)  
 
