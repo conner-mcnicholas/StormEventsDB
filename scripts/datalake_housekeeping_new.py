@@ -32,18 +32,18 @@ def cleanup_containers():
     for table in ['details','fatalities']:
         source_container_list = source_container_client.list_blobs()
         for s in source_container_list:
-            print('\n\nBEGIN SOURCE LOOP')
-            print(f'\ns: {s}')
+            #print('\n\nBEGIN SOURCE LOOP')
+            #print(f'\ns: {s}')
             depth = len(Path(s.name).parts)
-            print(f'\ndepth check source: {depth}')
+            #print(f'\ndepth check source: {depth}')
             if depth == 2:
-                print(f'SOURCE DEPTH PASSED')
+                #print(f'SOURCE DEPTH PASSED')
                 filetype = Path(s.name).parts[0]
                 filename = Path(s.name).parts[-1]
                 felements = filename.split("_")
                 fyear = int(felements[3][1:5])
-                print(f'filename: {filename}')
-                print(f'fyear: {fyear}\n')
+                #print(f'filename: {filename}')
+                #print(f'fyear: {fyear}\n')
                 if filetype == table:
                     newfile = filename
                     updateyear = fyear

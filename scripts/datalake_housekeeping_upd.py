@@ -32,41 +32,41 @@ def cleanup_containers():
     for table in ['details','fatalities']:
         source_container_list = source_container_client.list_blobs()
         for s in source_container_list:
-            print('\n\nBEGIN SOURCE LOOP')
-            print(f'\ns: {s}')
+            #print('\n\nBEGIN SOURCE LOOP')
+            #print(f'\ns: {s}')
             depth = len(Path(s.name).parts)
-            print(f'\ndepth check source: {depth}')
+            #print(f'\ndepth check source: {depth}')
             if depth == 2:
-                print(f'SOURCE DEPTH PASSED')
+                #print(f'SOURCE DEPTH PASSED')
                 filetype = Path(s.name).parts[0]
                 filename = Path(s.name).parts[-1]
                 felements = filename.split("_")
                 fyear = int(felements[3][1:5])
-                print(f'filename: {filename}')
-                print(f'fyear: {fyear}\n')
+                #print(f'filename: {filename}')
+                #print(f'fyear: {fyear}\n')
                 if filetype == table:
                     newfile = filename
                     updateyear = fyear
                     new_blob_name = s.name
                     destination_container_list = destination_container_client.list_blobs()
-                    print(f'SOURCE TABLE PASSED')
-                    print(f'newfile: {newfile}')
-                    print(f'updateyear : {updateyear}')
-                    print(f'new_blob_name : {new_blob_name}\n')
-                    print('LOOPING DESTINATIONS d\n')
+                    #print(f'SOURCE TABLE PASSED')
+                    #print(f'newfile: {newfile}')
+                    #print(f'updateyear : {updateyear}')
+                    #print(f'new_blob_name : {new_blob_name}\n')
+                    #print('LOOPING DESTINATIONS d\n')
                     for d in destination_container_list:
-                        print('\n\nBEGIN DESTINATION LOOP')
-                        print(f'\n\nd: {d}')
+                        #print('\n\nBEGIN DESTINATION LOOP')
+                        #print(f'\n\nd: {d}')
                         depth = len(Path(d.name).parts)
-                        print(f'depth check destination: {depth}')
+                        #print(f'depth check destination: {depth}')
                         if depth == 2:
-                            print(f'DEPTH DESTINATION PASSED')
+                            #print(f'DEPTH DESTINATION PASSED')
                             filetype = Path(d.name).parts[0]
                             filename = Path(d.name).parts[-1]
                             felements = filename.split("_")
                             pyear = int(felements[3][1:5])
-                            print(f'filename : {filename}')
-                            print(f'pyear : {pyear}\n')
+                            #print(f'filename : {filename}')
+                            #print(f'pyear : {pyear}\n')
                             if filetype == table and pyear == updateyear:
                                 print(f'{table} - DELETING old file: {d.name} FROM destination: {d.container}')
                                 destination_blob = destination_container_client.get_blob_client(d)
