@@ -110,26 +110,3 @@ az databricks workspace create \
 #create data factory
 az datafactory create --resource-group $AZ_DATAFACTORY_RESOURCE_GROUP \
     --factory-name $AZ_DATAFACTORY_NAME
-
-#create init pipelines
-az datafactory pipeline create --resource-group $AZ_DATAFACTORY_RESOURCE_GROUP \
-    --factory-name $AZ_DATAFACTORY_NAME --name init_pipeline \
-    --pipeline DATAFACTORY_pipelines/init_pipeline/pipeline/init_pipeline.json
-
-#create update pipelines
-az datafactory pipeline create --resource-group $AZ_DATAFACTORY_RESOURCE_GROUP \
-    --factory-name $AZ_DATAFACTORY_NAME --name update_pipeline \
-    --pipeline DATAFACTORY_pipelines/update_pipeline/pipeline/update_pipeline.json
-
-#create new pipelines
-az datafactory pipeline create --resource-group $AZ_DATAFACTORY_RESOURCE_GROUP \
-    --factory-name $AZ_DATAFACTORY_NAME --name new_pipeline \
-    --pipeline DATAFACTORY_pipelines/new_pipeline/pipeline/new_pipeline.json
-
-#run init pipeline
-az datafactory pipeline create-run --resource-group $AZ_DATAFACTORY_RESOURCE_GROUP \
-    --name init_pipeline --factory-name $AZ_DATAFACTORY_NAME
-
-#verify pipeline run success
-az datafactory pipeline-run show --resource-group $AZ_DATAFACTORY_RESOURCE_GROUP \
-    --factory-name $AZ_DATAFACTORY_NAME --run-id 00000000-0000-0000-0000-000000000000
