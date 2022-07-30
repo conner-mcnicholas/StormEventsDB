@@ -96,13 +96,17 @@ There are three mechanisms by which new data is released and ingested through pi
 
 ## Deploying and Initializing Resources
 
-  
+
 Instructions for initializing the database, ETL pipelines, and query environment are found in: `deploy_azure_resources/README.md`.
 
 ----
 
-## Quering Data
+## Querying Data
 
-- Available to explore -> 1.8M rows capturing 70 years of weather data across 62 *columns:*  
+- Available to explore -> 1.8M rows capturing 70 years of weather data across 62 *columns:*.  Perhaps creating a tighter view with limited columns is a good start...
 
-![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/mysqlworkbench_detdate.png?raw=true)
+![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/create_view.png?raw=true)  
+
+The analyst is now unencumbered in their exploration of this intriguing data set.  A warning, the data set *can* be slightly morbid:
+
+![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/storm_deaths.png?raw=true)  
