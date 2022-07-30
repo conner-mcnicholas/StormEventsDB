@@ -110,3 +110,7 @@ Instructions for initializing the database, ETL pipelines, and query environment
 The analyst is now unencumbered in their exploration of this intriguing data set.  A warning, the data set *can* be slightly morbid:
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/storm_deaths.png?raw=true)  
+
+Results can be exported as csv and plotted using analyst's preferred tool.  For example, a simple time-series of deaths vs injuries by year using Google Sheets:  
+
+![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/graph.png?raw=true)  
