@@ -1,22 +1,22 @@
 # Microsoft Azure cloud resources:
 
-Deploys via Docker container image:  
-  - data lake blob storage   
-  - mysql database   
-  - databricks   
-  - data factory   
+----
 
 ## 1. Prerequisites
 
-1.a) Docker
+1.a) Docker  
+
 1.b) Azure Subscription
 
 -----
 
 ## 2. Create Azure Data Lake Gen2, Azure MySQL, and Azure Data Factory base
 
-The following steps setup an empty Data Lake, empty MySQL database server, and  
-empty Data Factory instance.  
+Deploys via Docker container image:  
+  - data lake blob storage   
+  - mysql database   
+  - databricks   
+  - data factory   
 
 2.a) fill in secrets_template.ini based on your relevant Azure account configuration values, and save it as ".secrets".
 
