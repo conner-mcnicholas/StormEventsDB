@@ -51,13 +51,13 @@ Before restoring Data Factory to contain the three pipelines, we must first conf
 
 ## 4) Import Pipelines from ARM Template
 
-Before restoring Data Factory to contain the three pipelines, we must first configure Databricks  
+Now we can populate ADF with our three pipelines using the ARM template.  
 
 4.a) At the beginning of arm_template.json, replace the 3 placeholders for with your own config values from .secrets + cluster-id from step 3b.  
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/datafactory_replace_template.png?raw=true)  
 
-4.b) Follow the directions in `Create_ADF_From_ARM_Template.pdf` ([original url](https://www.c-sharpcorner.com/article/create-a-copy-of-azure-data-factory-using-azure-arm-templates/))  
+4.b) To import the ARM template into ADF, follow instructions in `Create_ADF_From_ARM_Template.pdf` ([original url](https://www.c-sharpcorner.com/article/create-a-copy-of-azure-data-factory-using-azure-arm-templates/))  
 
 ---
 
