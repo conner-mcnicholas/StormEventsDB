@@ -36,7 +36,12 @@ json metadata describing created resources will print to stdout.  Results should
 
 To restore Data Factory to contain the three pipelines, we must import `arm_template.json`
 
-Follow the directions in `Create_ADF_From_ARM_Template.pdf` ([original url](https://www.c-sharpcorner.com/article/create-a-copy-of-azure-data-factory-using-azure-arm-templates/))  
+3.a) Follow the directions in `Create_ADF_From_ARM_Template.pdf` ([original url](https://www.c-sharpcorner.com/article/create-a-copy-of-azure-data-factory-using-azure-arm-templates/))  
+
+3.b) Import all of the python scripts from the `../scripts` directory to Databricks dbfs `Filestore` directory:  
+
+![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/databricks_import_scripts.png?raw=true)  
+
 
 ## 4) Initialize Database
 
