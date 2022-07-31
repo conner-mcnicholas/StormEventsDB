@@ -56,11 +56,13 @@ There are three mechanisms by which new data is released and ingested through pi
 2. **Monthly Update**: On the 16th of each month, the current year's file is updated and renamed with mod date
     - upon confirmation of that filename change, trigger **upd** ELT pipeline  
 3. **Yearly New**: On April 16th of each year, a fresh file for that year is dropped for the first time.  
-    - Upon confirmation of that new file drop, trigger **new** ELT pipeline_test_success
-    - Begin tracking this file for monthly renaming, as it replaces last year's **upd** file
+    - Upon confirmation of that new file drop, trigger **new** ELT pipeline
+    - Begin tracking this filename for monthly update, retiring last year's file  
 
-  The data extract logic required  for each exists in its respective python scripts  
-  (see:`scripts/*_files_to_blob*.py`) and data factory tumbling window triggers
+
+The data extract logic required  for each exists in its respective python script  
+
+(see:`scripts/*_files_to_blob*.py`)
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/pipeline_overview.png?raw=true)  
 
@@ -74,8 +76,10 @@ There are three mechanisms by which new data is released and ingested through pi
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/yearly_deepdive.png?raw=true)  
 
-  **upd** and **new** pipelines conclude with Data Lake container maintenance as the final step  
-  (see: `scripts/datalake_housekeeping_*.py`):
+
+**upd** and **new** pipelines conclude with Data Lake container maintenance  
+
+(see: `scripts/datalake_housekeeping_*.py`):  
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/clean_containers_output.png?raw=true)  
 
@@ -83,8 +87,8 @@ There are three mechanisms by which new data is released and ingested through pi
 
 ## Testing  
 
-  *General Tests* verify each year has a file in Data Lake for both table  
-  *Pipeline Tests* verify each line from source files have rows in both MySQL tables
+*General Tests* verify each year has a file in Data Lake for both tables  
+*Pipeline Tests* verify each line from source files have rows in both tables
 
 - **8** *Total Tests* = **2** *General Tests* + **6** *Pipeline Tests*
   - **2** *General Tests* = **1** *General Test* x **2** *Tables*
@@ -94,16 +98,15 @@ There are three mechanisms by which new data is released and ingested through pi
 
 ----
 
-## Deploying and Initializing Resources
-
+## Deploying and Initializing Resources  
 
 Instructions for initializing the database, ETL pipelines, and query environment are found in: `deploy_azure_resources/README.md`.
 
 ----
 
-## Querying Data
+## Querying Data  
 
-- Available to explore -> 1.8M rows capturing 70 years of weather data across 62 *columns:*.  Perhaps creating a tighter view with limited columns is a good start...
+Available to explore -> 1.8M rows capturing 70 years of weather data across 62 *columns:*.  Perhaps creating a tighter view with limited columns is a good start...
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/create_view.png?raw=true)  
 
