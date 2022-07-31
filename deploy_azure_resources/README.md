@@ -34,14 +34,25 @@ json metadata describing created resources will print to stdout.  Results should
 
 ## 3) Import Pipelines from ARM Template
 
-To restore Data Factory to contain the three pipelines, we must import `arm_template.json`
+To restore Data Factory to contain the three pipelines, we must import `arm_template.json`  
 
-3.a) Follow the directions in `Create_ADF_From_ARM_Template.pdf` ([original url](https://www.c-sharpcorner.com/article/create-a-copy-of-azure-data-factory-using-azure-arm-templates/))  
+3.a) Create cluster in Databricks, with environment variables added referencing: `cluster_config.ini`  
+
+![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/databricks_cluster_setup.png?raw=true)  
+
+3.b) Take note of your cluster id from its config json:  
+
+![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/databricks_find_cluster_id.png?raw=true)  
+
+3.a) At the beginning of arm_template.json, replace the 3 placeholders for with your own config values from .secrets + cluster-id from previous step.  
+
+![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/datafactory_replace_template.png?raw=true)  
+
+3.b) Follow the directions in `Create_ADF_From_ARM_Template.pdf` ([original url](https://www.c-sharpcorner.com/article/create-a-copy-of-azure-data-factory-using-azure-arm-templates/)).  
 
 3.b) Import all of the python scripts from the `../scripts` directory to Databricks dbfs `FileStore` directory:  
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/databricks_import_scripts.png?raw=true)  
-
 
 ## 4) Initialize Database
 
@@ -59,4 +70,4 @@ Install your operating system's version of MySQL workbench locally, and create a
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/mysqlconfig.png?raw=true)  
 
-###                   **Deployment Complete!**
+#----------------------**Deployment Complete!**----------------------------
