@@ -11,12 +11,13 @@ import mysql.connector
 from mysql.connector import errorcode
 
 config = {
-  'host':'sevwethmysqlserv.mysql.database.azure.com',
-  'user':'conner@sevwethmysqlserv',
+  'host':f'{os.environ["AZ_MYSQL_SERVER_NAME"]}.mysql.database.azure.com',
+  'user':f'{os.environ["AZ_MYSQL_ADMIN"]}@{os.environ["AZ_MYSQL_SERVER_NAME"]}',
   'password':os.environ["AZ_MYSQL_ADMIN_PASSWORD"],
   'database':'defaultdb',
   'client_flags': [mysql.connector.ClientFlag.SSL],
-  'ssl_ca': f'{os.environ["HOME"]}/.ssh/DigiCertGlobalRootG2.crt.pem'
+  'ssl_ca': f'{os.environ["HOME"]}/.ssh/DigiCertGlobalRootG2.crt.pem',
+  'autocommit': True
 }
 
 def listall(url):
