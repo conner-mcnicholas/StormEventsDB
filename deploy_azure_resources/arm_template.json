@@ -5,7 +5,7 @@
         "factoryName": {
             "type": "string",
             "metadata": "Data Factory name",
-            "defaultValue": "stormeventsadf"
+            "defaultValue": "<AZ_DATAFACTORY_NAME>"
         },
         "output_mysql_connectionString": {
             "type": "secureString",
@@ -21,7 +21,7 @@
         },
         "input_data_lake_properties_typeProperties_url": {
             "type": "string",
-            "defaultValue": "https://pipelinestorageacctaus.dfs.core.windows.net/"
+            "defaultValue": "https://<AZ_STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/"
         },
         "fully_authd_properties_typeProperties_existingClusterId": {
             "type": "string",
