@@ -1,6 +1,5 @@
-# Microsoft Azure cloud resources:
+# DEPLOYING AND INITIALIZING AZURE RESOURCES
 
-----
 
 ## 1. Prerequisites
 
@@ -32,9 +31,9 @@ json metadata describing created resources will print to stdout.  Results should
 
 ----
 
-## 3) Import Pipelines from ARM Template
+## 3) Configure Databricks
 
-To restore Data Factory to contain the three pipelines, we must import `arm_template.json`  
+Before restoring Data Factory to contain the three pipelines, we must first configure Databricks  
 
 3.a) Create cluster in Databricks, with environment variables added referencing: `cluster_config.ini`  
 
@@ -44,25 +43,35 @@ To restore Data Factory to contain the three pipelines, we must import `arm_temp
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/databricks_find_cluster_id.png?raw=true)  
 
-3.a) At the beginning of arm_template.json, replace the 3 placeholders for with your own config values from .secrets + cluster-id from previous step.  
-
-![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/datafactory_replace_template.png?raw=true)  
-
-3.b) Follow the directions in `Create_ADF_From_ARM_Template.pdf` ([original url](https://www.c-sharpcorner.com/article/create-a-copy-of-azure-data-factory-using-azure-arm-templates/)).  
-
-3.b) Import all of the python scripts from the `../scripts` directory to Databricks dbfs `FileStore` directory:  
+3.c) Import all of the python scripts from the `../scripts` directory to Databricks dbfs `FileStore` directory:  
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/databricks_import_scripts.png?raw=true)  
 
-## 4) Initialize Database
+---
+
+## 4) Import Pipelines from ARM Template
+
+Before restoring Data Factory to contain the three pipelines, we must first configure Databricks  
+
+4.a) At the beginning of arm_template.json, replace the 3 placeholders for with your own config values from .secrets + cluster-id from step 3b.  
+
+![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/datafactory_replace_template.png?raw=true)  
+
+4.b) Follow the directions in `Create_ADF_From_ARM_Template.pdf` ([original url](https://www.c-sharpcorner.com/article/create-a-copy-of-azure-data-factory-using-azure-arm-templates/))  
+
+---
+
+## 5) Initialize Database
 
 To populate the Storm Events database with all of the available data, open the data factory pipeline "etl_all_files", and trigger it to run manually:
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/imgs/trigger_now.png?raw=true)  
 
-The monthly and yearly update pipelines are pre-configured to trigger on the necessary schedule, so no manually intervention is required.
+The monthly and yearly update pipelines are pre-configured to trigger on the necessary schedule, so no manually intervention is required.  
 
-## 5) Connect MySQL Workbench
+---
+
+## 6) Connect MySQL Workbench
 
 To query the data, a dedicated query environment is desirable.  The most popular choice for MySQL was chosen in this case, MySQL Workbench.  
 
