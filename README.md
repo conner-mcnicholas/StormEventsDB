@@ -13,7 +13,9 @@ _____
 
 ## Data Model  
 
-There are three different schemas offering storm event data within csv.gz files:
+There are three csv.gz files capturing different schemas of storm event data.  
+
+(see  `sample_data` directory for examples with tiny subset of data)
 
 #### Details
   - *columns:* 51
