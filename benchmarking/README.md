@@ -52,7 +52,7 @@ If clarity is needed regarding the relationships between the raw numbers and the
 Given the use case of this project, wherein query speeds are of greater consequence than the infrequent data ingestion speeds, we find that the default
 parquet partitioned databricks dataframe and KDB+ offer the best performance profiles.  Kx Systems does not disclose any standard pricing for KDB+ deploymens, but based on my experience it is unlikely to be a realistic contender.  Thus, using a databricks dataframe built from partitioned parquet files is the most attractive technology for this stack.
 
-#### TODO  
+#### TO-DO:
 
  - Orchestrate ETL with Airflow and
     - compare times to Azure Data Factory
