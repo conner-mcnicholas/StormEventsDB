@@ -54,4 +54,5 @@ parquet partitioned databricks dataframe and KDB+ offer the best performance pro
 
 #### TODO  
 
-Orchestrate ETL with Airflow and compare times to Azure Data Factory
+ - Orchestrate ETL with Airflow and
+    - compare times to Azure Data Factory
