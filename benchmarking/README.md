@@ -30,7 +30,7 @@ The speeds were relatively consistent within the following 4 database categories
 
 The data ingestion, individual query, and grouped summary times are captured in the following table:
 
- ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/benchmarking/imgs/chart_numbers.png?raw=true)
+ ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/benchmarking/imgs/charts_numbers.png?raw=true)
 
 Chart of individual query times:  
 
