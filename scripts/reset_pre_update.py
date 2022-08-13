@@ -61,14 +61,7 @@ def reset_staging():
         "  END_LAT DEC(9,4),"
         "  END_LON DEC(9,4),"
         "  EPISODE_NARRATIVE TEXT,"
-        "  EVENT_NARRATIVE TEXT,"config = {
-  'host':f'{os.environ["AZ_MYSQL_SERVER_NAME"]}.mysql.database.azure.com',
-  'user':f'{os.environ["AZ_MYSQL_ADMIN"]}@{os.environ["AZ_MYSQL_SERVER_NAME"]}',
-  'password':os.environ["AZ_MYSQL_ADMIN_PASSWORD"],
-  'database':'defaultdb',
-  'client_flags': [mysql.connector.ClientFlag.SSL],
-  'ssl_ca': f'{os.environ["HOME"]}/.ssh/DigiCertGlobalRootG2.crt.pem'
-}
+        "  EVENT_NARRATIVE TEXT,"
         "  DATA_SOURCE VARCHAR(3));"
         "DROP TABLE IF EXISTS STAGING_fatalities;"
         "CREATE TABLE STAGING_fatalities ("
