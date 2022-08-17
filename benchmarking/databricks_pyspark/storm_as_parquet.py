@@ -80,12 +80,12 @@ schema_fatalities = StructType([
 # COMMAND ----------
 
 storage_account_name = "pipelinestorageacctaus"
-storage_account_access_key = "f6fWRdrrX8qYB9a1y2Rlgu7qCuyeHuD59j3UIb0hi3ZanAn8DUmej+uofzFi7irJm954fTa5LtBb+AStzjJHYA=="
+storage_account_access_key = "-"
 spark_blob_container = "sparkstorestorm"
 blob_container = "allfiles"
 """
 for mount in dbutils.fs.mounts():
-    print(mount.mountPoint == '/mnt/storm') 
+    print(mount.mountPoint == '/mnt/storm')
 
 if not any(mount.mountPoint == '/mnt/storm/' for mount in dbutils.fs.mounts()):
     try:
@@ -360,7 +360,7 @@ sc = SparkContext
 def count_elements(splitIndex, iterator):
     n = sum(1 for _ in iterator)
     yield (splitIndex, n)
-    
+
 numparts = details_autopart.rdd.getNumPartitions()
 sc.parallelize(numSlices=numparts,c)
 details_def_rdd = sc.parallelize(range(0,numparts), numparts).map(lambda x: (x, x)).cache()
