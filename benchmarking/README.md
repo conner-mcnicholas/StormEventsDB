@@ -15,7 +15,7 @@ I benchmarked elapsed times required for 9 different database technologies to in
 
 The specifications for each is found below:
 
-![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/benchmarking/imgs/chart_db_specs.png?raw=true)  
+![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/benchmarking/imgs/charts/chart_db_specs.png?raw=true)  
 
 #### Summary Groupings
 
@@ -30,19 +30,19 @@ The speeds were relatively consistent within the following 4 database categories
 
 The data ingestion, individual query, and grouped summary times are captured in the following table:
 
- ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/benchmarking/imgs/charts_numbers.png?raw=true)
+ ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/benchmarking/imgs/charts/charts_numbers.png?raw=true)
 
 Chart of individual query times:  
 
- ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/benchmarking/imgs/chartquery.png?raw=true)
+ ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/benchmarking/imgs/charts/chartquery.png?raw=true)
 
 Grouped summary charts of query speed (R) and ingestion speed (L) (relative to slowest which is normalized at 1x):  
 
-![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/benchmarking/imgs/groupedspeedcharts.png?raw=true)
+![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/benchmarking/imgs/charts/groupedspeedcharts.png?raw=true)
 
 If clarity is needed regarding the relationships between the raw numbers and the charts, reference diagram:
 
-![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/benchmarking/imgs/charts_annotated.png?raw=true)
+![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/benchmarking/imgs/charts/charts_annotated.png?raw=true)
 
 
 Given the use case of this project, wherein query speeds are of greater consequence than the infrequent data ingestion speeds, we find that the default
