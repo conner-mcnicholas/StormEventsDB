@@ -36,13 +36,9 @@ Chart of individual query times:
 
  ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/benchmarking/imgs/chartquery.png?raw=true)
 
-Grouped summary charts of query speed and ingestion speed (relative to slowest which is normalized at 1x):  
+Grouped summary charts of query speed and ingestion speed, respectively (relative to slowest which is normalized at 1x):  
 
 ![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/benchmarking/imgs/groupedspeedcharts.png?raw=true)
-
-Chart of ingestion time grouped summary:
-
-![alt text](https://github.com/conner-mcnicholas/StormEventsDB/blob/main/benchmarking/imgs/chartingestspeed.png?raw=true)
 
 If clarity is needed regarding the relationships between the raw numbers and the charts, reference diagram:
 
